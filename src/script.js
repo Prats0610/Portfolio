@@ -2,6 +2,8 @@ const sections= document.querySelectorAll(".section");
 const sectBtns= document.querySelectorAll(".controls");
 const sectBtn= document.querySelectorAll(".control");
 const allSections= document.querySelector(".main-content");
+var validRegex = /\S+@\S+\.\S+/;
+
 
 function PageTransitions(){
     //Button click active class
@@ -48,10 +50,10 @@ function sendMail(){
     };
     const serviceID="service_qxsob1h";
     const templateID="template_r5855hk";
-    if(params.name=='' && params.email=='' && params.subject=='' && params.message==''){
-        alert("Please fill all the details");
+    if(params.name=='' || params.email=='' || params.subject=='' || params.message=='' || params.email!==validRegex){
+        alert("Please fill all the details correctly");
     }
-    else{
+    else{        
         emailjs
    .send(serviceID, templateID, params)
    .then((res)=>{
