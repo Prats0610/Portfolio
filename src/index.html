@@ -11,14 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-       (function(){
-            emailjs.init("YTTpcmtXYLRBdlONA");
-        })();
-    </script>
 
 </head>
 <body class="main-content">
@@ -260,21 +252,21 @@
                         </div>
                     </div>
                     <div class="right-contact">
-                        <form class="contact-form">
+                        <form class="contact-form" action="https://formspree.io/f/xdovrqgk" method="POST">
                             <div class="input-control i-c-2">
-                                <input type="text" id="name" required placeholder="YOUR NAME">
-                                <input type="email" id="email" required placeholder="YOUR EMAIL">
+                                <input type="text" id="name" name = "text" required placeholder="YOUR NAME">
+                                <input type="email" id="email" name="mail" required placeholder="YOUR EMAIL">
                             </div>
                             <div class="input-control">
-                                <input type="text" id="subject" required placeholder="ENTER SUBJECT">
+                                <input type="text" id="subject" name="subject" required placeholder="ENTER SUBJECT">
                             </div>
                             <div class="input-control">
-                                <textarea name="" id="message" cols="15" rows="8" placeholder="Message here.."></textarea>
+                                <textarea name="message" id="message" cols="15" rows="8" placeholder="Message here.."></textarea>
                             </div>
                             <div class="submit-btn">
                                 <a href="#" class="main-btn">
                                     <!-- <span class="btn-text">Submit</span> -->
-                                    <input class="btn-submit" onClick="sendMail()" type="submit" value="Submit">
+                                    <input class="btn-submit" type="submit" value="Send">
                                 </a>
                             </div>
                         </form>

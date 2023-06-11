@@ -2,11 +2,11 @@ const sections= document.querySelectorAll(".section");
 const sectBtns= document.querySelectorAll(".controls");
 const sectBtn= document.querySelectorAll(".control");
 const allSections= document.querySelector(".main-content");
-var validRegex = /\S+@\S+\.\S+/;
 
 
 function PageTransitions(){
     //Button click active class
+    console.log("count");
      for(let i =0; i< sectBtn.length; i++){
         sectBtn[i].addEventListener('click', function(){
             let currentBtn= document.querySelectorAll('.active-btn');
@@ -41,30 +41,8 @@ function PageTransitions(){
 
 PageTransitions();
 
-function sendMail(){
-    var params={
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value,
-    };
-    const serviceID="service_qxsob1h";
-    const templateID="template_r5855hk";
-    if(params.name=='' || params.email=='' || params.subject=='' || params.message=='' || params.email!==validRegex){
-        alert("Please fill all the details correctly");
-    }
-    else{        
-        emailjs
-   .send(serviceID, templateID, params)
-   .then((res)=>{
-        document.getElementById("name").value="";
-        document.getElementById("email").value="";
-        document.getElementById("subject").value="";
-        document.getElementById("message").value="";
-        console.log(res);
-        alert("Your message sent successfully");
-    })
-    .catch((err)=>
-    alert("Error! Please try again later"));
-    }   
+window.onbeforeunload = () => {
+  for(const form of document.getElementsByClassName('contact-form')) {
+    form.reset();
+  }
 }
